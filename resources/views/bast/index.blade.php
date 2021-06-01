@@ -53,12 +53,17 @@
                                                 <i class="material-icons">edit</i>
                                                 <div class="ripple-container"></div>
                                             </a>
+                                            <a rel="tooltip" class="btn btn-info btn-link" href="#"
+                                                data-original-title="" title="">
+                                                <i class="material-icons">print</i>
+                                                <div class="ripple-container"></div>
+                                            </a>
                                         </td>
                                     </tr>
                                     @empty
                                     <tr>
                                         <td>
-                                        Tidak ada bast.
+                                            Tidak ada bast.
                                         </td>
                                     </tr>
                                     @endforelse

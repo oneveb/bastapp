@@ -63,4 +63,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('bast', 'App\Http\Controllers\BastController');
+	Route::get('bast/print', ['as' => 'bast.print', 'uses' => 'App\Http\Controllers\BastController@print']);
 });

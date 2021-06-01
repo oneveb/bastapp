@@ -78,7 +78,7 @@ class BastController extends Controller
      */
     public function edit($id)
     {
-        //
+        //z
     }
 
     /**
@@ -102,5 +102,15 @@ class BastController extends Controller
     public function destroy($id)
     {
         //
+
+    }
+
+    // print ke pdf
+    public function print($id)
+    {
+        //
+        DB::table('d_bast')->where('nomor', $id)->delete();
+        DB::table('no_bast')->where('nomor', $id)->delete();
+        return redirect()->back();
     }
 }
