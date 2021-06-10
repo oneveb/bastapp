@@ -1,5 +1,4 @@
 @extends('layouts.app', ['activePage' => 'bast', 'titlePage' => __('BAST')])
-<!-- Navbar -->
 
 @section('content')
 <div class="content">

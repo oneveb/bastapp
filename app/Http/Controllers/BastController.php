@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use App;
 
 
 class BastController extends Controller
@@ -112,7 +113,9 @@ class BastController extends Controller
     public function print($id)
     {
         //
-        $pdf = PDF::make('dompdf.wrapper');
+        DB::table('d_bast')->where('nomor', $id)->get();
+        DB::table('no_bast')->where('nomor', $id)->get();
+        $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
     }
