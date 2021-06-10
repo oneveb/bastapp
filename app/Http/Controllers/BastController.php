@@ -6,6 +6,7 @@ use App\Models\DetailBast;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 
 class BastController extends Controller
@@ -102,15 +103,17 @@ class BastController extends Controller
     public function destroy($id)
     {
         //
-
+        DB::table('d_bast')->where('nomor', $id)->delete();
+        DB::table('no_bast')->where('nomor', $id)->delete();
+        return redirect()->back();
     }
 
     // print ke pdf
     public function print($id)
     {
         //
-        DB::table('d_bast')->where('nomor', $id)->delete();
-        DB::table('no_bast')->where('nomor', $id)->delete();
-        return redirect()->back();
+        $pdf = PDF::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
     }
 }

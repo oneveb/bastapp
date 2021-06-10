@@ -48,16 +48,25 @@
                                             2020-02-24
                                         </td>
                                         <td class="td-actions text-right">
-                                            <a rel="tooltip" class="btn btn-success btn-link" href="#"
-                                                data-original-title="" title="">
+                                            <a rel="tooltip" class="btn btn-info btn-link"
+                                                href="{{ route('bast.destroy',$bast->nomor) }}" data-original-title="" title="">
                                                 <i class="material-icons">edit</i>
-                                                <div class="ripple-container"></div>
+                                                <!-- <div class="ripple-container"></div> -->
                                             </a>
-                                            <a rel="tooltip" class="btn btn-info btn-link" href="#"
-                                                data-original-title="" title="">
+                                            <a rel="tooltip" class="btn btn-info btn-link"
+                                                href="{{ route('bast.print',$bast->nomor) }}" data-original-title="" title="">
                                                 <i class="material-icons">print</i>
-                                                <div class="ripple-container"></div>
+                                                <!-- <div class="ripple-container"></div> -->
                                             </a>
+                                            <a href="{{ route('bast.destroy',$bast->nomor) }}" onclick="event.preventDefault();document.getElementById('delete-form').submit();" class="btn btn-danger btn-link">
+                                                <i class="material-icons">delete</i>
+                                            </a>
+                                            <form id="delete-form" action="{{ route('bast.destroy',$bast->nomor) }}"
+                                                method="post" style="display: none;">
+                                                <input type="submit" value="Delete" />
+                                                {!! method_field('delete') !!}
+                                                {!! csrf_field() !!}
+                                            </form>
                                         </td>
                                     </tr>
                                     @empty
